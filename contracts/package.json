@@ -6,12 +6,13 @@
   "scripts": {
     "build-all": "node ./scripts/build.js",
     "deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/deploy.js",
-    "interact": "ts-node ./scripts/interact.ts",
+    "interact": "ts-node -r dotenv/config ./scripts/interact.ts",
     "createAcc": "file_name='/Users/bhagredd/Downloads/wallet2.json' ts-node ./scripts/utils/createAccount.ts",
     "test": "test"
   },
   "devDependencies": {
     "arweave": "^1.10.13",
+    "dotenv": "^10.0.0",
     "esbuild": "^0.11.12",
     "prettier": "^2.2.1",
     "smartweave": "^0.4.43",
