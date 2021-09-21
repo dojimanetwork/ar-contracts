@@ -1,0 +1,83 @@
+# Write your query or mutation here
+
+#Get transaction details with id
+query pstToBridgeTxById {
+  transactions(ids: ["2kBfGgPK3J3QTIiL5pVvliSh7_FRjkWE2QpNf_FnV2s"]) {
+    pageInfo {
+      hasNextPage
+    }
+    edges {
+      node {
+        id
+        owner {
+          address
+        }
+        recipient
+        tags {
+          name
+          value
+        }
+        block {
+          height
+          id
+          timestamp
+        }
+        fee {
+          winston
+        }
+        quantity {
+          winston
+        }
+      }
+      cursor
+    }
+  }
+}
+
+## get transactions with tags
+
+query getPstBridgeTxByTags {
+  transactions(
+    tags: [
+      { name: "App-Name", values: ["SmartWeaveAction"] }
+      {
+        name: "Contract"
+        values: ["UgeoCEns1ubZqhEPruAKBODsIelC6wJQOPQ3x7EWq9A"]
+      }
+      {
+        name: "Dojima-Transfer-Address"
+        values: ["kkynJfegxPERA1_DBmaw7AYIsjnplTfX4tNpIF_Vy3w"]
+      }
+    ]
+    first: 1
+  ) {
+    pageInfo {
+      hasNextPage
+    }
+    edges {
+      node {
+        id
+        owner {
+          address
+        }
+        recipient
+        tags {
+          name
+          value
+        }
+        block {
+          height
+          id
+          timestamp
+        }
+        fee {
+          winston
+        }
+        quantity {
+          winston
+        }
+      }
+      cursor
+    }
+  }
+}
