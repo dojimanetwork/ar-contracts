@@ -16,11 +16,10 @@ const client = new Arweave({
 //read contract from json
 const contract = JSON.parse(fs.readFileSync("./contract.json") as unknown as string);
 
-const target = process.env.TARGET
+const target = process.env.TARGET_ADDRESS
 
 
 const wallet = JSON.parse(fs.readFileSync("./wallet.json") as unknown as string);
-console.log(target);
 
 (async () => {
 try{
