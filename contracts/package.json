@@ -7,7 +7,7 @@
     "build-all": "node ./scripts/build.js",
     "deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/deploy.js",
     "interact": "ts-node -r dotenv/config ./scripts/interact.ts",
-    "createAcc": "file_name='/Users/bhagredd/Downloads/wallet2.json' ts-node ./scripts/utils/createAccount.ts",
+    "createAcc": "ts-node ./scripts/utils/createAccount.ts",
     "test": "test"
   },
   "devDependencies": {

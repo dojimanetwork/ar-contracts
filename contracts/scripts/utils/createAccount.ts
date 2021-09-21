@@ -6,12 +6,10 @@ import fs from 'fs'
         host: 'localhost',
         port: 1984,
         protocol: 'http'
-    })
-    console.log(instance);
-    
+    })    
     const wallet = await instance.wallets.generate()
-    const address = await instance.wallets.getAddress(wallet)
-    fs.writeFile(process.env.file_name, JSON.stringify(wallet), (err) => {
+
+    fs.writeFile(process.env.WALLET_FILE_NAME, JSON.stringify(wallet), (err) => {
         console.log("err",err);
     })
     
