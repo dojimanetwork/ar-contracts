@@ -13,7 +13,7 @@ const contract = process.env.CONTRACT_NAME;
 
 if (!contract) throw new Error("No contract name submitted");
 
-const wallet = JSON.parse(fs.readFileSync("./arweave.json"));
+const wallet = JSON.parse(fs.readFileSync("./wallet.json"));
 const src = fs.readFileSync(`./dist/${contract}/index.js`);
 const state = fs.readFileSync(`./src/${contract}/state.json`);
 
