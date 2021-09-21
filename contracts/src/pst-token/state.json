@@ -1,10 +1,10 @@
 {
     "name": "DOJIMA",
     "ticker": "DOJIMA PST-TOKEN",
-    "owner": "KSkXRlce5fyOHcNenq74Oqme19_DqhnQd7UmFugEX5Q",
+    "owner": "4ev2p9KS4V12igiq3a11u2XOB1HoqONI1_QS7518wVU",
     "canEvolve": true,
     "balances": {
-        "KSkXRlce5fyOHcNenq74Oqme19_DqhnQd7UmFugEX5Q": 10000000,
-        "TQk5nm0KsSOpyYzfbcCaKjI6kTdTGor-1dLr3LA40VY": 0
+        "4ev2p9KS4V12igiq3a11u2XOB1HoqONI1_QS7518wVU": 10000000,
+        "FLDNnvIFBhb-Ha4gp6zJCAFXjkln8fBkvN4BBWG7A5E": 0
     }
 }

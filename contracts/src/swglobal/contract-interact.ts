@@ -5,7 +5,7 @@ import { JWKInterface } from 'arweave/node/lib/wallet';
 import { loadContract } from './contract-load';
 import { readContract } from './contract-read';
 import { execute, ContractInteraction, ContractInteractionResult, ContractHandler } from './contract-step';
-import { unpackTags } from './utils';
+import { evalSettings, unpackTags } from './utils';
 import { BlockData } from 'arweave/node/blocks';
 import SmartWeaveError, { SmartWeaveErrorType } from './errors';
 import { SmartWeaveGlobal } from './smartweave-global';
@@ -109,8 +109,11 @@ export async function interactWriteDryRun(
   let { handler, swGlobal, contractSrcTXID } = contractInfoParam || (await loadContract(arweave, contractId));
   const latestState = myState || (await readContract(arweave, contractId));
   const from = fromParam || (await arweave.wallets.getAddress(wallet));
-
-  const settings = latestState.settings ? new Map(latestState.settings) : new Map();
+  console.log("latestState------- \n", latestState);
+  
+  const settings = evalSettings(latestState);
+  console.log("settings--------", settings);
+  
   const evolve: string = latestState.evolve || settings.get('evolve');
   let canEvolve: boolean = latestState.canEvolve || settings.get('canEvolve');
 
@@ -178,7 +181,7 @@ export async function interactWriteDryRunCustom(
   const latestState = myState || (await readContract(arweave, contractId));
   const from = fromParam;
 
-  const settings = latestState.settings ? new Map(latestState.settings) : new Map();
+  const settings = evalSettings(latestState);
   const evolve: string = latestState.evolve || settings.get('evolve');
   let canEvolve: boolean = latestState.canEvolve || settings.get('canEvolve');
 
@@ -244,7 +247,7 @@ export async function interactRead(
   const latestState = await readContract(arweave, contractId);
   const from = wallet ? await arweave.wallets.getAddress(wallet) : '';
 
-  const settings = latestState.settings ? new Map(latestState.settings) : new Map();
+  const settings = evalSettings(latestState);
   const evolve: string = latestState.evolve || settings.get('evolve');
   let canEvolve: boolean = latestState.canEvolve || settings.get('canEvolve');
 
@@ -294,9 +297,11 @@ async function createTx(
   tags: { name: string; value: string }[],
   target: string = '',
   winstonQty: string = '0',
+  reward?: string,
 ): Promise<Transaction> {
   const options: Partial<CreateTransactionInterface> = {
     data: Math.random().toString().slice(-4),
+    reward,
   };
 
   if (target && target.length) {
@@ -321,7 +326,6 @@ async function createTx(
   interactionTx.addTag('App-Version', '0.3.0');
   interactionTx.addTag('Contract', contractId);
   interactionTx.addTag('Input', JSON.stringify(input));
-  //add more tags for customization
 
   await arweave.transactions.sign(interactionTx, wallet);
   return interactionTx;

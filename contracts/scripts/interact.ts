@@ -1,8 +1,8 @@
 import Arweave from "arweave"
-// import { loadContract, interactWrite } from "smartweave"
+// import { loadContract, interactWrite, readContract, interactWriteDryRun } from "smartweave"
 import fs from "fs"
 import { execute } from "smartweave/lib/contract-step"
-import { readContract, interactWrite, loadContract } from "../src/swglobal";
+import { readContract, interactWrite, loadContract, interactWriteDryRun, simulateInteractWrite } from "../src/swglobal";
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -27,8 +27,8 @@ try{
   //load contract
   const load = await loadContract(client, contractId)
   // const latestState = await readContract(client, "EvDJsAQ1Ns7WOQMJwuryJehRAId2DW4oHmVc3q6pqRU")
-  const {handler, initState} = load
-
+  const {handler, initState, contractSrc, swGlobal, id} = load
+  
   const from = await client.wallets.getAddress(wallet) //address
   const input = {
     function: 'transfer',
@@ -51,10 +51,12 @@ try{
       value: "kkynJfegxPERA1_DBmaw7AYIsjnplTfX4tNpIF_Vy3w"
     }
   ])
-  console.log("Db transaction write", write);
 
-  //read transaction from db
-  const read = await readContract(client, contractId, 0, true)
+  await client.api.get('mine')
+  // console.log("Db transaction write", write);
+
+  // read transaction from db
+  const read = await readContract(client, contractId, undefined, true)
   console.log("Latest state from db", read);
 }
 catch(e){

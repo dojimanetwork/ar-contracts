@@ -19,9 +19,7 @@ export async function loadContract(arweave: Arweave, contractID: string, contrac
   contractSrcTXID = contractSrcTXID || getTag(contractTX, 'Contract-Src');
 
   const minFee = getTag(contractTX, 'Min-Fee');
-  //loads contract src tx
   const contractSrcTX = await arweave.transactions.get(contractSrcTXID);
-  //src code
   const contractSrc = contractSrcTX.get('data', { decode: true, string: true });
 
   let state: string;

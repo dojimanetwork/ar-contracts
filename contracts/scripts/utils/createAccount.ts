@@ -9,6 +9,8 @@ import fs from 'fs'
     })    
     const wallet = await instance.wallets.generate()
     console.log(process.env.WALLET_FILE_NAME);
+
+    await instance.api.get('/mine')
     
     fs.writeFile(process.env.WALLET_FILE_NAME, JSON.stringify(wallet), (err) => {
         console.log("err",err);
