@@ -1,0 +1,27 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "description": "contracts for pst tokens",
+  "main": "index.js",
+  "scripts": {
+    "build-all": "node ./scripts/build.js",
+    "deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/deploy.js",
+    "interact": "ts-node ./scripts/interact.ts",
+    "createAcc": "file_name='/Users/bhagredd/Downloads/wallet2.json' ts-node ./scripts/utils/createAccount.ts",
+    "test": "test"
+  },
+  "devDependencies": {
+    "arweave": "^1.10.13",
+    "esbuild": "^0.11.12",
+    "prettier": "^2.2.1",
+    "smartweave": "^0.4.43",
+    "typescript": "^4.4.2",
+    "yorkie": "^2.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "promises-tho": "^1.1.0",
+    "typescript.api": "^0.7.7"
+  }
+}
