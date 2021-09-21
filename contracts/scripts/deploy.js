@@ -21,7 +21,7 @@ const state = fs.readFileSync(`./src/${contract}/state.json`);
   const id = await createContract(client, wallet, src, state);
   fs.writeFile('contract.json', `{
     "id": "${id}"
-  }`, (err) => {
+}`, (err) => {
     console.log(err)
   })
 })();
