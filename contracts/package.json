@@ -10,6 +10,7 @@
     "interact": "ts-node -r dotenv/config ./scripts/interact.ts",
     "fake_interact": "ts-node -r dotenv/config ./scripts/fake_interact.ts",
     "createAcc": "ts-node -r dotenv/config ./scripts/utils/createAccount.ts",
+    "read_contract": "ts-node -r dotenv/config ./scripts/read.ts",
     "verifyTx": "ts-node -r dotenv/config ./scripts/verify.ts",
     "test": "test"
   },
