@@ -1,10 +1,8 @@
-# Testing AR contracts 1
+# Testing AR contracts
 
-*Italic*
-This repo used to test ar contracts, interact, read and deploy contracts with arlocal.
+*This repo used to test ar contracts, interact, read and deploy contracts with arlocal.*
 
 ```
-# code block
  yarn build:all - builds all contracts.
  yarn deploy:testing - deploy contract to node.
  yarn fake_deploy:testing - deploy fake contract.
@@ -14,8 +12,9 @@ This repo used to test ar contracts, interact, read and deploy contracts with ar
  yarn verifyTx - verify particular tx as valid or not.
 ```
 
+---
 
-Steps To Load project:
+>Steps To Load project:
 1. Add .env file at root directory and modify variables.
 2. run yarn deploy:testing
 3. run yarn interact
