@@ -1,5 +1,5 @@
 import Arweave from "arweave"
-import { loadContract, interactWrite, readContract, interactWriteDryRun } from "smartweave"
+import { loadContract, interactWrite, readContract } from "smartweave"
 import fs from "fs"
 import { execute } from "smartweave/lib/contract-step"
 // import { readContract, interactWrite, loadContract, interactWriteDryRun, simulateInteractWrite } from "../src/swglobal";

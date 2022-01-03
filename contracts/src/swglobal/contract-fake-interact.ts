@@ -9,6 +9,7 @@ import { evalSettings, unpackTags } from './utils';
 import { BlockData } from 'arweave/node/blocks';
 import SmartWeaveError, { SmartWeaveErrorType } from './errors';
 import { SmartWeaveGlobal } from './smartweave-global';
+import fs from 'fs'
 
 /**
  * Writes an interaction on the blockchain.
@@ -322,9 +323,10 @@ async function createTx(
       interactionTx.addTag(tag.name.toString(), tag.value.toString());
     }
   }
+  const contract = JSON.parse(fs.readFileSync("./contract.json") as unknown as string);
   interactionTx.addTag('App-Name', 'SmartWeaveAction');
   interactionTx.addTag('App-Version', '0.3.0');
-  interactionTx.addTag('Contract', 'Qq8VJPeMEq1Lyr8c3TtoHKw859_ZgM1fCWRlNiURAIc');
+  interactionTx.addTag('Contract', contract.id);
   interactionTx.addTag('Input', JSON.stringify(input));
 
   await arweave.transactions.sign(interactionTx, wallet);

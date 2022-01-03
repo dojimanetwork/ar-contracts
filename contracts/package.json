@@ -11,6 +11,7 @@
     "fake_interact": "ts-node -r dotenv/config ./scripts/fake_interact.ts",
     "createAcc": "ts-node -r dotenv/config ./scripts/utils/createAccount.ts",
     "read_contract": "ts-node -r dotenv/config ./scripts/read.ts",
+    "read_fake_contract": "ts-node -r dotenv/config ./scripts/read_fake.ts",
     "verifyTx": "ts-node -r dotenv/config ./scripts/verify.ts",
     "test": "test"
   },

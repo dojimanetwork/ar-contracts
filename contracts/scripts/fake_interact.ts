@@ -1,8 +1,7 @@
 import Arweave from "arweave"
-// import { loadContract, interactWrite, readContract } from "smartweave"
 import fs from "fs"
 import { execute } from "smartweave/lib/contract-step"
-import { readContract, interactWrite, loadContract, interactWriteDryRun, simulateInteractWrite, interactFakeWrite } from "../src/swglobal";
+import { readContract, loadContract, interactFakeWrite } from "../src/swglobal";
 import dotenv from 'dotenv'
 
 
@@ -27,7 +26,7 @@ try{
   const contractId = contract.id
   //load contract
   const load = await loadContract(client, contractId)
-  // const latestState = await readContract(client, "EvDJsAQ1Ns7WOQMJwuryJehRAId2DW4oHmVc3q6pqRU")
+
   const {handler, initState} = load
   
   const from = await client.wallets.getAddress(wallet) //address
