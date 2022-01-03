@@ -6,7 +6,9 @@
   "scripts": {
     "build-all": "node ./scripts/build.js",
     "deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/deploy.js",
+    "fake_deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/fake_deploy.js",
     "interact": "ts-node -r dotenv/config ./scripts/interact.ts",
+    "fake_interact": "ts-node -r dotenv/config ./scripts/fake_interact.ts",
     "createAcc": "ts-node -r dotenv/config ./scripts/utils/createAccount.ts",
     "verifyTx": "ts-node -r dotenv/config ./scripts/verify.ts",
     "test": "test"

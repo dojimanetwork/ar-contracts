@@ -13,7 +13,8 @@ import {
   simulateInteractWrite,
 } from './contract-interact';
 import { readContract } from './contract-read';
-import { selectWeightedPstHolder } from './weighted-pst-holder';
+import { selectWeightedPstHolder } from './weighted-pst-holder'; 
+import { interactFakeWrite } from './contract-fake-interact';
 
 const smartweave = {
   simulateCreateContractFromTx,
@@ -43,5 +44,6 @@ export {
   interactRead,
   readContract,
   selectWeightedPstHolder,
+  interactFakeWrite,
   smartweave,
 };
