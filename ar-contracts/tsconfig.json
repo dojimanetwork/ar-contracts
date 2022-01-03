@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "lib": ["es6"],
+    "downlevelIteration": true
+  },
+  "include": ["**/*.ts", "scripts/deploy.js"],
+  "exclude": ["node_modules"]
+
+}
