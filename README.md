@@ -1,5 +1,4 @@
-# Heading 1
-Testing AR contracts
+# Testing AR contracts 1
 
 *Italic*
 This repo used to test ar contracts, interact, read and deploy contracts with arlocal.
