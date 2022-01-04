@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build-all": "node ./scripts/build.js",
+    "mint": "ts-node -r dotenv/config ./scripts/mint_ar.ts",
+    "transfer": "ts-node -r dotenv/config ./scripts/transfer_ar.ts",
+    "balance": "ts-node -r dotenv/config ./scripts/get_balance.ts",
+    "winston_to_ar": "ts-node -r dotenv/config ./scripts/winston_to_ar.ts",
     "deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/deploy.js",
     "fake_deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/fake_deploy.js",
     "interact": "ts-node -r dotenv/config ./scripts/interact.ts",

@@ -1,16 +1,9 @@
-import Arweave from "arweave"
+import Client from './utils/init'
 import { readContract } from "smartweave"
 import fs from "fs"
 // import { readContract, interactWrite, loadContract, interactWriteDryRun, simulateInteractWrite } from "../src/swglobal";
-import dotenv from 'dotenv'
 
-dotenv.config()
 
-const client = new Arweave({
-    host: "localhost",
-    port: 1984,
-    protocol: "http",
-});
 
 //read contract from json
 const contract = JSON.parse(fs.readFileSync("./fake_contract.json") as unknown as string);
@@ -22,7 +15,7 @@ const target:string = process.env.TARGET_ADDRESS as string
 try{
   const contractId = contract.id
   // read transaction from db
-  const read = await readContract(client, contractId, undefined, true)
+  const read = await readContract(Client, contractId, undefined, true)
   console.log("Latest state from db", read);
   
 

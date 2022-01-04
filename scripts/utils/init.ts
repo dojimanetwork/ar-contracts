@@ -1,9 +1,13 @@
 import Arweave from 'arweave'
+import dotenv from 'dotenv'
 
-const instance: Arweave = Arweave.init({
+dotenv.config();
+
+const Client: Arweave = Arweave.init({
     host: 'localhost',
     port: 1984,
     protocol: 'http'
 })
 
-export default instance as Arweave
+
+export default Client

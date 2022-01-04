@@ -1,17 +1,8 @@
-import Arweave from "arweave"
+
 import fs from "fs"
 import { execute } from "smartweave/lib/contract-step"
 import { readContract, loadContract, interactFakeWrite } from "../src/swglobal";
-import dotenv from 'dotenv'
-
-
-dotenv.config()
-
-const client = new Arweave({
-    host: "localhost",
-    port: 1984,
-    protocol: "http",
-});
+import Client from './utils/init'
 
 //read contract from json
 const contract = JSON.parse(fs.readFileSync("./fake_contract.json") as unknown as string);
@@ -25,11 +16,11 @@ const wallet = JSON.parse(fs.readFileSync("./wallet.json") as unknown as string)
 try{
   const contractId = contract.id
   //load contract
-  const load = await loadContract(client, contractId)
+  const load = await loadContract(Client, contractId)
 
   const {handler, initState} = load
   
-  const from = await client.wallets.getAddress(wallet) //address
+  const from = await Client.wallets.getAddress(wallet) //address
   const input = {
     function: 'transfer',
     target,
@@ -45,18 +36,18 @@ try{
   console.log("Response result -----",response.result, response.state, response.type);
 
   // // //write transaction to db
-  const write = await interactFakeWrite(client, wallet, contractId, input, [
+  const write = await interactFakeWrite(Client, wallet, contractId, input, [
     {
       name: "Dojima-Transfer-Address",
       value: "kkynJfegxPERA1_DBmaw7AYIsjnplTfX4tNpIF_Vy3w"
     }
   ])
 
-  await client.api.get('mine')
+  await Client.api.get('mine')
   // console.log("Db transaction write", write);
 
   // read transaction from db
-  const read = await readContract(client, contractId, undefined, true)
+  const read = await readContract(Client, contractId, undefined, true)
   console.log("Latest state from db", read);
   
 
