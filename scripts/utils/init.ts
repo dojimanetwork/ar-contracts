@@ -3,10 +3,14 @@ import dotenv from 'dotenv'
 
 dotenv.config();
 
+
+
 const Client: Arweave = Arweave.init({
-    host: 'localhost',
-    port: 1984,
-    protocol: 'http'
+    host: 'arweave.net',
+    port: 443,
+    protocol: 'https',
+    timeout: 60000,
+    logging: false
 })
 
 

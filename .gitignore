@@ -2,3 +2,5 @@ node_modules/
 dist/
 address.txt
 wallet-*.json
+**/cache
+**/db

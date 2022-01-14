@@ -18,6 +18,9 @@
     "read_contract": "ts-node -r dotenv/config ./scripts/read.ts",
     "read_fake_contract": "ts-node -r dotenv/config ./scripts/read_fake.ts",
     "verifyTx": "ts-node -r dotenv/config ./scripts/verify.ts",
+    "redstone:read.f": "ts-node -r dotenv/config ./scripts/redstone/read.c.filecache.ts",
+    "redstone:read.m": "ts-node -r dotenv/config ./scripts/redstone/read.c.memcache.ts",
+    "redstone:read.knex": "ts-node -r dotenv/config ./scripts/redstone/read.knex.cache.ts",
     "test": "test"
   },
   "devDependencies": {
@@ -32,7 +35,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "knex": "^0.95.15",
+    "pg": "^8.7.1",
     "promises-tho": "^1.1.0",
+    "redstone-smartweave": "^0.4.13",
+    "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master",
     "typescript.api": "^0.7.7"
   }
 }

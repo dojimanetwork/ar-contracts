@@ -28,7 +28,6 @@ try{
     console.log("target owner doesn't exists in contract state", target); 
   }
 
-  '2I9_INSTjyAyH_GYXGbSlxkqYvjk3ZkG0osJbWF3dYE'
 }
 catch(e){
     console.log(e);
