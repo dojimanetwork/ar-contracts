@@ -7,6 +7,7 @@
     "build-all": "node ./scripts/build.js",
     "mint": "ts-node -r dotenv/config ./scripts/mint_ar.ts",
     "transfer": "ts-node -r dotenv/config ./scripts/transfer_ar.ts",
+    "swap_ar": "ts-node -r dotenv/config ./scripts/swap.ts",
     "transfer_ar_data": "ts-node -r dotenv/config ./scripts/transfer_ar_data.ts",
     "balance": "ts-node -r dotenv/config ./scripts/get_balance.ts",
     "winston_to_ar": "ts-node -r dotenv/config ./scripts/winston_to_ar.ts",
@@ -21,6 +22,9 @@
     "redstone:read.f": "ts-node -r dotenv/config ./scripts/redstone/read.c.filecache.ts",
     "redstone:read.m": "ts-node -r dotenv/config ./scripts/redstone/read.c.memcache.ts",
     "redstone:read.knex": "ts-node -r dotenv/config ./scripts/redstone/read.knex.cache.ts",
+    "wallet-js:create_account": "ts-node ./scripts/wallet-js/create-account.ts",
+    "wallet-js:mint_ar": "ts-node ./scripts/wallet-js/mint.ts",
+    "wallet-js:transfer_ar": "ts-node ./scripts/wallet-js/transfer.ts",
     "test": "test"
   },
   "devDependencies": {
@@ -35,6 +39,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dojima-wallet/account": "^0.0.1-alpha.21",
+    "@dojima-wallet/transfer": "^0.0.1-alpha.22",
     "knex": "^0.95.15",
     "pg": "^8.7.1",
     "promises-tho": "^1.1.0",
