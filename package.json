@@ -11,6 +11,7 @@
     "transfer_ar_data": "ts-node -r dotenv/config ./scripts/transfer_ar_data.ts",
     "balance": "ts-node -r dotenv/config ./scripts/get_balance.ts",
     "winston_to_ar": "ts-node -r dotenv/config ./scripts/winston_to_ar.ts",
+    "ar_to_winston": "ts-node -r dotenv/config ./scripts/ar_to_winston.ts",
     "deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/deploy.js",
     "fake_deploy:testing": "CONTRACT_NAME=pst-token node ./scripts/fake_deploy.js",
     "interact": "ts-node -r dotenv/config ./scripts/interact.ts",
@@ -25,6 +26,7 @@
     "wallet-js:create_account": "ts-node ./scripts/wallet-js/create-account.ts",
     "wallet-js:mint_ar": "ts-node ./scripts/wallet-js/mint.ts",
     "wallet-js:transfer_ar": "ts-node ./scripts/wallet-js/transfer.ts",
+    "price": "ts-node -r dotenv/config ./scripts/get_price.ts",
     "test": "test"
   },
   "devDependencies": {

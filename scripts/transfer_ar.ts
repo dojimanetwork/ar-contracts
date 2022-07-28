@@ -17,7 +17,7 @@ const wallet = JSON.parse(fs.readFileSync("./wallet-2.json") as unknown as strin
     const transfer = await Client.createTransaction({
         target: to_addr,
         tags: [tag],
-        quantity: Client.ar.arToWinston("1000000")
+        quantity: Client.ar.arToWinston("10000000")
     }, wallet)
 
     await Client.transactions.sign(transfer, wallet)

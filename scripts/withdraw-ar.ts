@@ -9,7 +9,7 @@ import {Tag} from "arweave/node/lib/transaction";
     console.log("from address", from);
     const tag = new Tag(
         "memo",
-        "SWAP:D11K.DOJ:dojima1nh4y3gqxsn7ymm9t45zwsz3h8p9tm7pev8my62"
+        "WITHDRAW:AR.AR:10000"
     )
     const transfer = await Client.createTransaction({
         target: to_addr,
