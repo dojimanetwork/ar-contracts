@@ -2,7 +2,7 @@ import Client from './utils/init'
 import fs from 'fs'
 
 
-const wallet = JSON.parse(fs.readFileSync("/Users/luffybhaagi/Downloads/arweave-keyfile-BEse3_Pq84KMolix81H8k6nLSo934dLcI4U4-mnr8qk.json") as unknown as string);
+const wallet = JSON.parse(fs.readFileSync("./wallet-2.json") as unknown as string);
 
 
 const ar_amount = parseInt(process.env.MINT_AR as string, 10);
