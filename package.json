@@ -6,7 +6,8 @@
   "scripts": {
     "build-all": "node ./scripts/build.js",
     "mint": "ts-node -r dotenv/config ./scripts/mint_ar.ts",
-    "transfer": "ts-node -r dotenv/config ./scripts/transfer_ar.ts",
+    "symmetric_transfer": "ts-node -r dotenv/config ./scripts/symmetric_ar.ts",
+    "assymmetric_transfer": "ts-node -r dotenv/config ./scripts/assymetric_liquidity.ts",
     "swap_ar": "ts-node -r dotenv/config ./scripts/swap.ts",
     "transfer_ar_data": "ts-node -r dotenv/config ./scripts/transfer_ar_data.ts",
     "balance": "ts-node -r dotenv/config ./scripts/get_balance.ts",
@@ -27,7 +28,7 @@
     "wallet-js:mint_ar": "ts-node ./scripts/wallet-js/mint.ts",
     "wallet-js:transfer_ar": "ts-node ./scripts/wallet-js/transfer.ts",
     "price": "ts-node -r dotenv/config ./scripts/get_price.ts",
-    "test": "test"
+    "withdraw_liquidity": "ts-node -r dotenv/config ./scripts/withdraw-ar.ts"
   },
   "devDependencies": {
     "arweave": "^1.10.13",
