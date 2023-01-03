@@ -1,16 +1,12 @@
-import Arweave from 'arweave'
+import Client from './init'
 import fs from 'fs'
 
 (async () => {
-    const instance: Arweave = Arweave.init({
-        host: 'localhost',
-        port: 1984,
-        protocol: 'http'
-    })    
-    const wallet = await instance.wallets.generate()
+
+    const wallet = await Client.wallets.generate()
     console.log(process.env.WALLET_FILE_NAME);
 
-    await instance.api.get('/mine')
+    await Client.api.get('/mine')
     
     fs.writeFile(process.env.WALLET_FILE_NAME, JSON.stringify(wallet), (err) => {
         console.log("err",err);
@@ -18,7 +14,7 @@ import fs from 'fs'
 
     const pathArray = (process.env.WALLET_FILE_NAME as string).split('/')
     const filePath = pathArray.slice(0, pathArray.length - 1 ).join('/')
-    const address = await instance.wallets.getAddress(wallet)
+    const address = await Client.wallets.getAddress(wallet)
 
     fs.appendFile(`${filePath}/address.txt`, `\n${address}\n`, (err) => {
         console.log("err",err);
