@@ -4,20 +4,23 @@ import {Tag} from "arweave/node/lib/transaction";
 
 
 const to_addr = process.env.TARGET_ADDRESS
+const lp_memo = process.env.LP_MEMO as string
+const lp_amt = process.env.LP_AMT as string
+
 const wallet = JSON.parse(fs.readFileSync("./wallet-2.json") as unknown as string);
 
 (async () => {
 
     const from = await Client.wallets.getAddress(wallet)
-    console.log("from address", from);
+
     const tag = new Tag(
         "memo",
-        "ADD:AR.AR:dojima1nh4y3gqxsn7ymm9t45zwsz3h8p9tm7pev8my62"
+        lp_memo
 )
     const transfer = await Client.createTransaction({
         target: to_addr,
         tags: [tag],
-        quantity: Client.ar.arToWinston("10000000")
+        quantity: Client.ar.arToWinston(lp_amt)
     }, wallet)
 
     await Client.transactions.sign(transfer, wallet)
