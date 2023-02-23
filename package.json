@@ -28,7 +28,8 @@
     "wallet-js:mint_ar": "ts-node ./scripts/wallet-js/mint.ts",
     "wallet-js:transfer_ar": "ts-node ./scripts/wallet-js/transfer.ts",
     "price": "ts-node -r dotenv/config ./scripts/get_price.ts",
-    "withdraw_liquidity": "ts-node -r dotenv/config ./scripts/withdraw-ar.ts"
+    "withdraw_liquidity": "ts-node -r dotenv/config ./scripts/withdraw-ar.ts",
+    "get_tx_details": "ts-node -r dotenv/config ./scripts/get_tx.ts"
   },
   "devDependencies": {
     "arweave": "^1.10.13",

@@ -14,8 +14,8 @@ const wallet = JSON.parse(fs.readFileSync("./wallet-2.json") as unknown as strin
     const from = await Client.wallets.getAddress(wallet)
 
     const tag = new Tag(
-        "memo",
-        lp_memo
+        Client.utils.stringToB64Url("memo"),
+        Client.utils.stringToB64Url(lp_memo)
 )
     const transfer = await Client.createTransaction({
         target: to_addr,

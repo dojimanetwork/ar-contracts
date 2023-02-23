@@ -15,8 +15,8 @@ import {Tag} from "arweave/node/lib/transaction";
     // )
     console.log(memo)
     const tag = new Tag(
-        "memo",
-        memo
+        Client.utils.stringToB64Url("memo"),
+        Client.utils.stringToB64Url(memo),
     )
     const transfer = await Client.createTransaction({
         target: to_addr,
